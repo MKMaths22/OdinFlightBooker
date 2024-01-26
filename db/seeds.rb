@@ -8,8 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
     
-    Airport.destroy_all
+    Flight.delete_all
+    Airport.delete_all
 
     ["KYN", "LBA", "LHR", "LTN"].each do |code|
       Airport.create!(code: code)
     end
+
+    Flight.create!(departure_airport: Airport.find_by(code: 'KYN'), arrival_airport: Airport.find_by(code: 'LBA'), start: Time.now, duration_hours: 1, duration_minutes: 30)
