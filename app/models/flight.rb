@@ -4,4 +4,7 @@ class Flight < ApplicationRecord
   validates :start, presence: true
   validates :duration_hours, presence: true
   validates :duration_minutes, presence: true
+    def flight_date
+      start.strftime("%d/%m/%Y")
+    end
 end

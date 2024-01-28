@@ -1,0 +1,27 @@
+<%= form_with url: "/flights", method: :get do |form| %>
+  <%= form.label :query, "Search Flights:" %>
+  <br>
+  <br>
+  <label for="departure_airport_id">Departing From:</label>
+  <%= select_tag(:departure_airport_id, options_for_select(@airport_options)) %>
+  <br>
+  <label for="arrival_airport_id">Arriving At:</label>
+  <%= select_tag(:arrival_airport_id, options_for_select(@airport_options)) %>
+  <br>
+  <label for="number_of_passengers">How Many Passengers?</label>
+  <%= select_tag(:number_of_passengers, options_for_select([[1,1], [2,2], [3,3], [4,4]])) %>
+
+  <label for="date_flying">Date of Flight</label>
+  <%= select_tag(:date_flying, options_for_select(@flight_date_options)) %>
+
+  <%= form.submit "Search" %>
+<% end %>
+
+<% if @found_flights.size.zero? %>
+  No flights match your search criteria.
+<% else %>
+  <% @found_flights.each do |flight| %>
+    This flight has i.d.
+    <%= flight.id %>
+  <% end %>
+<% end %>
