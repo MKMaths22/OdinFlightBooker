@@ -25,7 +25,3 @@
     Flight.create!(departure_airport: Airport.find_by(code: 'LHR'), arrival_airport: Airport.find_by(code: 'LTN'), start: DateTime.new(2024, 1, 29, 15, 0, 0), duration_hours: 1, duration_minutes: 10)
     Flight.create!(departure_airport: Airport.find_by(code: 'LTN'), arrival_airport: Airport.find_by(code: 'LHR'), start: DateTime.new(2024, 1, 30, 11, 10, 0), duration_hours: 1, duration_minutes: 10)
     Flight.create!(departure_airport: Airport.find_by(code: 'LTN'), arrival_airport: Airport.find_by(code: 'KYN'), start: DateTime.new(2024, 1, 31, 12, 30, 0), duration_hours: 1, duration_minutes: 00)
-
-    Flight.all.each do |flight|
-      flight[flight_date:] = flight.flight_date
-    end

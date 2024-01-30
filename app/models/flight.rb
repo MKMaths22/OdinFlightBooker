@@ -4,7 +4,14 @@ class Flight < ApplicationRecord
   validates :start, presence: true
   validates :duration_hours, presence: true
   validates :duration_minutes, presence: true
+
+  after_create :populate_flight_date
+
     def flight_date
       start.strftime("%d/%m/%Y")
+    end
+
+    def populate_flight_date
+      self.update_attribute(:flight_date, self.flight_date)
     end
 end
