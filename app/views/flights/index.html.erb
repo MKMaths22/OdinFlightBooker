@@ -20,8 +20,8 @@
 <% if @found_flights.size.zero? %>
   No flights match your search criteria.
 <% else %>
-  <% @found_flights.each do |flight| %>
-    This flight has i.d.
-    <%= flight.id %>
+  <%= form_with url: "flights", method: :get do |form| %>
+    <%= form.collection_radio_buttons :flight_id, @found_flights.order(:start), :id, :duration_hours %>
+    <%= form.submit "Choose Flight" %>
   <% end %>
 <% end %>
