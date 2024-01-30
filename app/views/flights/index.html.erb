@@ -11,8 +11,8 @@
   <label for="number_of_passengers">How Many Passengers?</label>
   <%= select_tag(:number_of_passengers, options_for_select([[1,1], [2,2], [3,3], [4,4]])) %>
 
-  <label for="date_flying">Date of Flight</label>
-  <%= select_tag(:date_flying, options_for_select(@flight_date_options)) %>
+  <label for="flight_date">Date of Flight</label>
+  <%= select_tag(:flight_date, options_for_select(@flight_date_options)) %>
 
   <%= form.submit "Search" %>
 <% end %>
