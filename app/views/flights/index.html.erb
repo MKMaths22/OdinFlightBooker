@@ -21,7 +21,9 @@
   No flights match your search criteria.
 <% else %>
   <%= form_with url: "flights", method: :get do |form| %>
-    <%= form.collection_radio_buttons :flight_id, @found_flights.order(:start), :id, :duration_hours %>
+    <div class="radiodiv">
+      <%= form.collection_radio_buttons(:flight_id, @found_flights.order(:start), :id, :display_flight) %>
+    </div>
     <%= form.submit "Choose Flight" %>
   <% end %>
 <% end %>

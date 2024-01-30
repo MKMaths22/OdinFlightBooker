@@ -14,4 +14,8 @@ class Flight < ApplicationRecord
     def populate_flight_date
       self.update_attribute(:flight_date, self.flight_date)
     end
+
+    def display_flight
+      "Departing at #{start.strftime("%H:%M")}. Flight lasts #{duration_hours} hours and #{duration_minutes} minutes."
+    end
 end
