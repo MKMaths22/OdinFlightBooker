@@ -1,0 +1,7 @@
+<%# if @found_flights.size.zero? %>
+  No flights match your search criteria.
+<%# else %>
+  <%# @found_flights.each do |flight| %>
+    Here is a flight.
+  <%# end %>
+<%# end %>
