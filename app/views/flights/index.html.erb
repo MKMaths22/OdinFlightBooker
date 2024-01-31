@@ -20,11 +20,11 @@
 <% if @found_flights.size.zero? %>
   No flights match your search criteria.
 <% else %>
-  <%= form_with url: "flights", method: :get do |form| %>
+  <%= form_with url: "/bookings/new", method: :get do |form| %>
     <div class="radiodiv">
       <%= form.collection_radio_buttons(:flight_id, @found_flights.order(:start), :id, :display_flight) %>
     </div>
-    <%= form.hidden_field :number_of_passengers %>
+    <%= form.hidden_field :number_of_passengers, :value => params[:number_of_passengers] %>
     <%= form.submit "Choose Flight" %>
   <% end %>
 <% end %>
