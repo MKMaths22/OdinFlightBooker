@@ -5,3 +5,10 @@
     Here is a flight.
   <%# end %>
 <%# end %>
+<%= form.hidden_field :number_of_passengers, :value => params[:number_of_passengers] %>
+
+# allowed_params[:number_of_passengers].to_i.times do |i|
+    # puts "The value of i is #{i}"
+    # @passenger_hash[i] = Passenger.create([allowed_params[:passengers_attributes]])
+    # puts "passenger_hash is #{@passenger_hash}"
+    # end

@@ -22,14 +22,13 @@ minutes before arriving at
 
 <%= form_with model: @booking do |form| %>
   <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-  <%= form.hidden_field :number_of_passengers, :value => params[:number_of_passengers] %>
   <% params[:number_of_passengers].to_i.times do |i| %>
     <h3>Details for Passenger
     <%= i+1 %>
     </h3>
     <br>
     <br>
-    <%= form.fields_for :passenger, index: i do |f| %>
+    <%= form.fields_for :passengers_attributes, index: i do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
       <br>
