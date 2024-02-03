@@ -1,21 +1,8 @@
-<% flight = @booking.flight %>
 You have successfully made Booking number
 <%= @booking.id %>
-for flight
-<%= flight.id %>
-which departs from
-<%= flight.departure_airport.code %>
-at
-<%= flight.start.strftime("%H:%M")%>
-on
-<%= flight.flight_date %>
-, lasting
-<%= flight.duration_hours %>
-hours and
-<%= flight.duration_minutes %>
-minutes before arriving at
-<%= flight.arrival_airport.code %>
-<br>
+
+<%= render partial: 'flight_info', locals: {flight: @booking.flight} %>
+
 <br>
 The booking is for
 <%= @booking.passengers.size %>

@@ -1,20 +1,9 @@
 You are making a booking for
 <%= params[:number_of_passengers] %>
-passenger(s) for
-<%= @flight.flight_date %>
-for Flight number
-<%= @flight.id %>
-which leaves
-<%= @flight.departure_airport.code %>
-at 
-<%= @flight.start.strftime("%H:%M")%>
-, lasting
-<%= @flight.duration_hours %>
-hours and
-<%= @flight.duration_minutes %>
-minutes before arriving at
-<%= @flight.arrival_airport.code %>
-<br>
+passenger(s)
+
+<%= render partial: 'flight_info', locals: {flight: Flight.find(params[:flight_id]) } %>
+
 <br>
 <%= link_to "Start Again", root_path %>
 <br>

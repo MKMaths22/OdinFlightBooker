@@ -1,0 +1,15 @@
+for Flight number
+<%= flight.id %>
+which departs from
+<%= flight.departure_airport.code %>
+at
+<%= flight.start.strftime("%H:%M")%>
+on
+<%= flight.flight_date %>
+, lasting
+<%= flight.duration_hours %>
+hours and
+<%= flight.duration_minutes %>
+minutes before arriving at
+<%= flight.arrival_airport.code %>
+<br>
