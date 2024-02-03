@@ -22,7 +22,7 @@
 <% else %>
   <%= form_with url: "/bookings/new", method: :get do |form| %>
     <div class="radiodiv">
-      <%= form.collection_radio_buttons(:flight_id, @found_flights.order(:start), :id, :display_flight) %>
+      <%= form.collection_radio_buttons(:flight_id, @found_flights.order(:start), :id, :display_flight, checked: @found_flights.order(:start).first.id)%>
     </div>
     <%= form.hidden_field :number_of_passengers, :value => params[:number_of_passengers] %>
     <%= form.submit "Choose Flight" %>

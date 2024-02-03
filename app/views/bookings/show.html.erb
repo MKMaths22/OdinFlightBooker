@@ -1,2 +1,34 @@
-This is the show view for Booking number 
+<% flight = @booking.flight %>
+You have successfully made Booking number
 <%= @booking.id %>
+for flight
+<%= flight.id %>
+which departs from
+<%= flight.departure_airport.code %>
+at
+<%= flight.start.strftime("%H:%M")%>
+on
+<%= flight.flight_date %>
+, lasting
+<%= flight.duration_hours %>
+hours and
+<%= flight.duration_minutes %>
+minutes before arriving at
+<%= flight.arrival_airport.code %>
+<br>
+<br>
+The booking is for
+<%= @booking.passengers.size %>
+passenger(s), as follows:
+<% @booking.passengers.each do |pass| %>
+  <br>
+  <br>
+  Name:
+  <%= pass.name %>
+  <br>
+  Email:
+  <%= pass.email %>
+<% end %>
+<br>
+<br>
+<%= link_to "Search Flights", root_path %>
