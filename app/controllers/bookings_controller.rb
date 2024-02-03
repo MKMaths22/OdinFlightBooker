@@ -5,12 +5,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-    puts "allowed_params are #{booking_params}"
-    @booking = Booking.create!(booking_params)
-    puts "Is this being outputted?"
+    @booking = Booking.new(booking_params)
+    if @booking.save
+      redirect_to booking_path(id: @booking.id)
+    else
+      redirect_to new_booking_path()
+      flash[:alert] = "Booking failed to save. Please try again."
+    end
   end
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
   private

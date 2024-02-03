@@ -27,7 +27,6 @@ minutes before arriving at
     <%= i+1 %>
     </h3>
     <br>
-    <br>
     <%= form.fields_for :passengers_attributes, index: i do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -38,5 +37,6 @@ minutes before arriving at
     <br>
     <br>
   <% end %>
+  <br>
   <%= form.submit %>
 <% end %>
