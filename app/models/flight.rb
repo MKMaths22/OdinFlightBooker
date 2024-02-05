@@ -18,6 +18,6 @@ class Flight < ApplicationRecord
     end
 
     def display_flight
-      "Departing #{departure_airport.code} at #{start.strftime("%H:%M")} on #{flight_date}. Flight lasts #{duration_hours} hours and #{duration_minutes} minutes before arriving at #{arrival_airport.code}"
+      "Departing #{departure_airport.code} at #{start.strftime("%H:%M")} on #{flight_date}. Flight lasts #{duration_hours} hours and #{duration_minutes} minutes before arriving at #{arrival_airport.code}."
     end
 end
