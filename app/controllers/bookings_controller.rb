@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
       redirect_to booking_path(id: @booking.id)
     else
       redirect_to new_booking_path()
-      flash[:alert] = "Booking failed to save. Please try again."
+      flash[:alert] = "Booking failed to save. All name/email fields are required. Please try again."
     end
   end
 

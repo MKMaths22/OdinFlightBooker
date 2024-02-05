@@ -1,3 +1,30 @@
 .alert {
   color: red;
 }
+
+div.searchdiv > * {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+div.searchdiv > *:hover {
+  background-color: rgb(40, 40, 40);
+  color: white;
+}
+
+.passengersdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  gap: 10px;
+  background-color: rgb(180, 193, 220);
+  border: 2px solid grey;
+}
+
+.fieldandlabel {
+  padding: 2px;
+}
+

@@ -9,23 +9,27 @@ passenger(s)
 <br>
 <br>
 
-<%= form_with model: @booking do |form| %>
-  <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-  <% params[:number_of_passengers].to_i.times do |i| %>
-    <h3>Details for Passenger
-    <%= i+1 %>
-    </h3>
-    <br>
-    <%= form.fields_for :passengers_attributes, index: i do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <br>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    <% end %>
-    <br>
-    <br>
+<div class="passengersdiv">
+  <%= form_with model: @booking do |form| %>
+    <%= form.hidden_field :flight_id, value: params[:flight_id] %>
+    <% params[:number_of_passengers].to_i.times do |i| %>
+      <h3>Details for Passenger
+      <%= i+1 %>
+      </h3>
+      <%= form.fields_for :passengers_attributes, index: i do |f| %>
+        <div class="fieldandlabel">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="fieldandlabel">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
+      <% end %>
   <% end %>
   <br>
-  <%= form.submit %>
+  <div class="searchdiv">
+    <%= form.submit %>
+  </div>
+</div>
 <% end %>

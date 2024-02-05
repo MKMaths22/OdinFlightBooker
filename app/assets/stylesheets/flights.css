@@ -1,6 +1,7 @@
 .radiodiv {
-  display: flex;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  max-width: 300px;
 }
 
 .radiodiv > label {
@@ -10,4 +11,32 @@
 
 input[type="radio"] {
   margin-left: 50px;
+}
+
+.container {
+  display: flex;
+  max-width: 250px;
+  flex-direction: column;
+  gap: 15px;
+  background-color: rgb(180, 193, 220);
+  border: 2px solid grey;
+  padding: 30px;
+}
+
+div.searchdiv {
+  align-self: center;
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
+
+div.searchdiv > * {
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+div.searchdiv > *:hover {
+  background-color: rgb(40, 40, 40);
+  color: white;
 }
