@@ -36,3 +36,14 @@ bookingfieldandlabel {
   margin-bottom: 25px;
 }
 
+div.declarebooking {
+  background-color: rgb(180, 193, 220);
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid grey
+}
+

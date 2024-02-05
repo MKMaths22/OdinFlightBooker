@@ -18,6 +18,10 @@ class Flight < ApplicationRecord
     end
 
     def display_flight
-      "Departing #{departure_airport.code} at #{start.strftime("%H:%M")} on #{flight_date}. Flight lasts #{duration_hours} hours and #{duration_minutes} minutes before arriving at #{arrival_airport.code}."
+      "Departing #{departure_airport.code} at #{start.strftime("%H:%M")} on #{flight_date}. Flight lasts #{plural_or_not(duration_hours, ' hour')} and #{plural_or_not(duration_minutes, ' minute')} before arriving at #{arrival_airport.code}."
+    end
+
+    def plural_or_not(num, string)
+      num == 1 ? '1'.concat(string) : num.to_s.concat(string.concat('s'))
     end
 end

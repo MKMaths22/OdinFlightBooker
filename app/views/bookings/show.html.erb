@@ -6,16 +6,21 @@ You have successfully made Booking number
 <br>
 The booking is for
 <%= @booking.passengers.size %>
-passenger(s), as follows:
-<% @booking.passengers.each do |pass| %>
-  <br>
-  <br>
-  Name:
-  <%= pass.name %>
-  <br>
-  Email:
-  <%= pass.email %>
+<% if @booking.passengers.size == 1 %>
+  passenger
+<% else %>
+  passengers
 <% end %>
-<br>
-<br>
+, as follows:
+<div class="declarebooking">
+ <% @booking.passengers.each do |pass| %>
+ <div class="innerdiv">  
+    Name:
+    <%= pass.name %>
+    <br>
+    Email:
+    <%= pass.email %>
+ </div>
+ <% end %>
+</div>
 <%= link_to "Search Flights", root_path %>
