@@ -7,11 +7,11 @@ You have successfully made Booking number
 The booking is for
 <%= @booking.passengers.size %>
 <% if @booking.passengers.size == 1 %>
-  passenger
+  passenger,
 <% else %>
-  passengers
+  passengers,
 <% end %>
-, as follows:
+as follows:
 <div class="declarebooking">
  <% @booking.passengers.each do |pass| %>
  <div class="innerdiv">  
