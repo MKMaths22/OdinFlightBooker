@@ -17,6 +17,7 @@ input[type="radio"] {
   display: flex;
   max-width: 250px;
   flex-direction: column;
+  align-items: flex-end;
   gap: 15px;
   background-color: rgb(180, 193, 220);
   border: 2px solid grey;
@@ -25,8 +26,6 @@ input[type="radio"] {
 
 div.searchdiv {
   align-self: center;
-  padding-left: 40px;
-  padding-bottom: 20px;
 }
 
 div.searchdiv > * {
@@ -34,6 +33,11 @@ div.searchdiv > * {
   font-size: 15px;
   font-weight: bold;
   border-radius: 3px;
+}
+
+#choose {
+  margin-left: 80px;
+  margin-top: 20px;
 }
 
 div.searchdiv > *:hover {

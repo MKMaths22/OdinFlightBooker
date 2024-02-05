@@ -35,7 +35,7 @@
       <%= form.collection_radio_buttons(:flight_id, @found_flights.order(:start), :id, :display_flight, checked: @found_flights.order(:start).first.id)%>
     </div>
       <%= form.hidden_field :number_of_passengers, :value => params[:number_of_passengers] %>
-    <div class="searchdiv"> 
+    <div class="searchdiv", id="choose"> 
       <%= form.submit "Choose Flight" %>
     </div>
   <% end %>

@@ -8,9 +8,19 @@ on
 <%= flight.flight_date %>
 , lasting
 <%= flight.duration_hours %>
-hours and
+<% if flight.duration_hours == 1 %>
+  hour
+<% else %>
+  hours
+<% end %>
+and
 <%= flight.duration_minutes %>
-minutes before arriving at
+<% if flight.duration_minutes == 1 %>
+  minute
+<% else %>
+  minutes
+<% end %>
+before arriving at
 <%= flight.arrival_airport.code %>
 .
 <br>
