@@ -8,6 +8,9 @@ gem "rails", "~> 7.1.3"
 # Adding bundling
 gem 'cssbundling-rails'
 
+# Foreman used by css-bundling-rails
+gem 'foreman'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

@@ -13,6 +13,7 @@ passenger(s)
   <%= form_with model: @booking do |form| %>
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
     <% params[:number_of_passengers].to_i.times do |i| %>
+    <div class="onepassengerdiv"> 
       <h3>Details for Passenger
       <%= i+1 %>
       </h3>
@@ -26,7 +27,14 @@ passenger(s)
           <%= f.text_field :email %>
         </div>
       <% end %>
+      </div>
   <% end %>
+  <br>
+  <div data-controller="add_passenger">
+    <button data-add_passenger-target="add_button" data-action="add_passenger#add_form" >Add Passenger</button>
+  </div>
+  
+  <br>
   <br>
   <div class="bookingsearchdiv", id="create">
     <%= form.submit %>
