@@ -10,7 +10,14 @@ export default class extends Controller {
   }
 
   add_form() {
-
+    const passenger_details = document.querySelector("div.passengersdetailsdiv");
+    const template = document.querySelector("#onepassenger");
+    const clone = template.content.cloneNode(true);
+    
+    this.number_of_forms++;
+    const headline = clone.querySelector("h3");
+    headline.textContent = `Details for Passenger ${this.number_of_forms}`
+    passenger_details.appendChild(clone)
   }
 
 }

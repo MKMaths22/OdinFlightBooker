@@ -14,26 +14,26 @@ passenger(s)
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
     <div class="passengersdetailsdiv"
       <% params[:number_of_passengers].to_i.times do |i| %>
-        <div class="onepassengerdiv"> 
-          <h3>Details for Passenger
-          <%= i+1 %>
-          </h3>
-          <%= form.fields_for :passengers_attributes, index: i do |f| %>
-            <div class="bookingfieldandlabel">
-              <%= f.label :name %>
-              <%= f.text_field :name %>
-            </div>
-            <div class="bookingfieldandlabel">
-              <%= f.label :email %>
-              <%= f.text_field :email %>
-            </div>
-          <% end %>
-        </div>
+          <div class="onepassengerdiv">
+            <h3>Details for Passenger
+            <%= i+1 %>
+            </h3>
+            <%= form.fields_for :passengers_attributes, index: i do |f| %>
+              <div class="bookingfieldandlabel">
+                <%= f.label :name %>
+                <%= f.text_field :name %>
+              </div>
+              <div class="bookingfieldandlabel">
+                <%= f.label :email %>
+                <%= f.text_field :email %>
+              </div>
+            <% end %>
+          </div>
       <% end %>
     </div>
     <br>
     <div data-controller="add-passenger">
-      <button data-add-passenger-target="add_button" data-action="add-passenger#add_form" >Add Passenger</button>
+      <button type="button" data-add-passenger-target="add_button" data-action="add-passenger#add_form" >Add Passenger</button>
     </div>
   
     <br>
@@ -43,3 +43,17 @@ passenger(s)
     </div>
   <% end %>
 </div>
+
+<template id="onepassenger">
+<div class="onepassengerdiv">
+  <h3>Details for Passenger X</h3>
+  <div class="bookingfieldandlabel">
+    <label for="booking_passengers_attributes_X_name">Name</label>
+    <input type="text" name="booking[passengers_attributes][X][name]" id="booking_passengers_attributes_X_name">
+  </div>
+  <div class="bookingfieldandlabel">
+    <label for="booking_passengers_attributes_X_email">Email</label>
+    <input type="text" name="booking[passengers_attributes][X][email]" id="booking_passengers_attributes_X_email">
+  </div>
+</div>
+</template>
