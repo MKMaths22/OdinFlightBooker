@@ -1,8 +1,9 @@
-You are making a booking for
+<p class="toppara">You are making a booking for
 <%= params[:number_of_passengers] %>
 passenger(s)
 
-<%= render partial: 'flight_info', locals: {flight: Flight.find(params[:flight_id]) } %>
+
+<%= render partial: 'flight_info', locals: {flight: Flight.find(params[:flight_id]) } %></p>
 
 <br>
 <%= link_to "Start Again", root_path %>
@@ -12,23 +13,26 @@ passenger(s)
 <div class="bookingformdiv">
   <%= form_with model: @booking do |form| %>
     <%= form.hidden_field :flight_id, value: params[:flight_id] %>
-    <div class="passengersdetailsdiv"
+    <div class="passengersdetailsdiv">
       <% params[:number_of_passengers].to_i.times do |i| %>
-          <div class="onepassengerdiv">
-            <h3>Details for Passenger
-            <%= i+1 %>
-            </h3>
-            <%= form.fields_for :passengers_attributes, index: i do |f| %>
-              <div class="bookingfieldandlabel">
-                <%= f.label :name %>
-                <%= f.text_field :name %>
-              </div>
-              <div class="bookingfieldandlabel">
-                <%= f.label :email %>
-                <%= f.text_field :email %>
-              </div>
-            <% end %>
+        <div class="onepassengerdiv" style="margin-bottom:20px;">
+          <h3>Details for Passenger
+          <%= i+1 %>
+          </h3>
+          <%= form.fields_for :passengers_attributes, index: i do |f| %>
+            <div class="bookingfieldandlabel">
+              <%= f.label :name %>
+              <%= f.text_field :name %>
+            </div>
+            <div class="bookingfieldandlabel">
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+            </div>
+          <% end %>
+          <div data-controller="add-passenger">
+            <button type="button" data-add-passenger-target="remove_button" data-action="add-passenger#remove_form" >Remove Passenger</button>
           </div>
+        </div>
       <% end %>
     </div>
     <br>
@@ -45,7 +49,7 @@ passenger(s)
 </div>
 
 <template id="onepassenger">
-<div class="onepassengerdiv">
+<div class="onepassengerdiv" style="margin-bottom:20px;">
   <h3>Details for Passenger X</h3>
   <div class="bookingfieldandlabel">
     <label class="namelabel" for="booking_passengers_attributes_X_name">Name</label>
@@ -54,6 +58,9 @@ passenger(s)
   <div class="bookingfieldandlabel">
     <label class="emaillabel" for="booking_passengers_attributes_X_email">Email</label>
     <input class="emailinput" type="text" name="booking[passengers_attributes][X][email]" id="booking_passengers_attributes_X_email">
+  </div>
+  <div data-controller="add-passenger">
+    <button type="button" data-add-passenger-target="remove_button" data-action="add-passenger#remove_form" >Remove Passenger</button>
   </div>
 </div>
 </template>

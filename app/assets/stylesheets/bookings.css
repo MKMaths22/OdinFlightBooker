@@ -27,8 +27,8 @@ div.bookingsearchdiv > *:hover {
 }
 
 
-bookingfieldandlabel {
- padding: 2px;
+div.bookingfieldandlabel {
+ padding: 20px;
 }
 
 #create {
@@ -45,5 +45,9 @@ div.declarebooking {
   margin: 10px;
   padding: 10px;
   border: 2px solid grey
+}
+
+div.onepassengerdiv {
+  margin: 20px 5px;
 }
 
