@@ -73,7 +73,7 @@ In early March 2024 I followed the instructions at https://www.theodinproject.co
 
 Project: Go back to your Flight Booker project and improve it:  
 
-1)  Add a controller that allows the user to add another passenger by clicking on an “Add passenger” button, which adds another set of fields to enter the passenger details (hint: have a look at the <template> tag)  
+1)  Add a controller that allows the user to add another passenger by clicking on an “Add passenger” button, which adds another set of fields to enter the passenger details (hint: have a look at the template HTML tag)  
 
 2)  Allow to remove existing passengers by clicking a “Remove” button, which removes the one set of passenger fields (make sure submissions to the server still works as expected)  
 
