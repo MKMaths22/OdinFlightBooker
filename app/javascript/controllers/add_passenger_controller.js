@@ -63,13 +63,15 @@ export default class extends Controller {
   }
 
   remove_form() {
-    let number_of_forms = document.querySelectorAll("div.onepassengerdiv").length
+    let number_of_forms = document.querySelectorAll("div.onepassengerdiv").length;
     if (number_of_forms == 1) {
       return
     }
     else {
-      const the_button_clicked = this.remove_buttonTarget;
-      the_button_clicked.parentElement.parentElement.remove();
+      this.remove_buttonTarget.parentElement.parentElement.remove();
+      let passenger_forms = document.querySelectorAll("div.onepassengerdiv");
+      passenger_forms.forEach((div, index) => { div.querySelector("h3").textContent = `Details for Passenger ${index + 1}`});
+      
       number_of_forms--;
       const para = document.querySelector("p.toppara");
       para.textContent = para.textContent.replace(`${number_of_forms + 1}`, `${number_of_forms}`)
