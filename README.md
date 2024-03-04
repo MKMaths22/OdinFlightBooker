@@ -64,3 +64,21 @@ To set up the database it is necessary to use 'rails db:seed' so that there are 
 **Author notes by Peter Hawes:**  
 
 Setting up associations went more smoothly than in my previous Rails projects. However, the need to specify foreign key: 'flight_id' in the Bookings model caught me out, causing a nasty bug for a while insofar as the #create method in the Bookings controller was failing to make the Booking. Just as I was about to ask for help on the Odin Discord, I had the inspiration to change 'create' to the bang method 'create!' so that an error message was forced. This revealed that the flight_id was not recognised, and it still wasn't easy to find the problem. Debugging in Rails is still tricky, but I am getting better at knowing where to look in the many files.
+
+--------------------------
+
+**Update: Adding Stimulus for Booking form:**
+
+In early March 2024 I followed the instructions at https://www.theodinproject.com/lessons/ruby-on-rails-stimulus:
+
+Project: Go back to your Flight Booker project and improve it:  
+
+1)  Add a controller that allows the user to add another passenger by clicking on an “Add passenger” button, which adds another set of fields to enter the passenger details (hint: have a look at the <template> tag)  
+
+2)  Allow to remove existing passengers by clicking a “Remove” button, which removes the one set of passenger fields (make sure submissions to the server still works as expected)  
+
+3)  Prevent removing the last set of passenger details.
+
+-----------------------------
+
+I found myself a bit rusty with Javascript but enjoyed this challenge. One subtlety that troubled me was that each Remove button for an individual set of passenger forms has its own controller, each with their own controller variables, but there is only ONE Add passenger button, so its controller variables will remain consistent. What surprised me is that if the attributes for name and email fields become non-sequential because a form field is removed in between (e.g. we remove passenger 2 of 3), the form still happily submits and the Booking object is created without a problem.
