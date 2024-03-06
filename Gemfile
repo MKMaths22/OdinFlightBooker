@@ -8,6 +8,9 @@ gem "rails", "~> 7.1.3"
 # Adding bundling
 gem 'cssbundling-rails'
 
+# Adding letter_opener for confirmation emails
+gem "letter_opener", group: :development
+
 # Foreman used by css-bundling-rails
 gem 'foreman'
 
