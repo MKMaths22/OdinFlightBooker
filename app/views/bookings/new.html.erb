@@ -43,6 +43,7 @@ passenger(s)
     <br>
     <br>
     <div class="bookingsearchdiv", id="create">
+      <%= form.hidden_field :number_of_fields, :value => params[:number_of_passengers]%>
       <%= form.submit %>
     </div>
   <% end %>

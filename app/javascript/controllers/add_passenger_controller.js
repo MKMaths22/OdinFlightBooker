@@ -50,6 +50,9 @@ export default class extends Controller {
     new_attribute = old_stuff.replace("X", `${this.next_to_add}`)
     first_name.setAttribute("name", `${new_attribute}`)
     number_of_forms++;
+    let last_div = document.querySelector("div.bookingsearchdiv");
+    let first_input = last_div.querySelector("input");
+    first_input.setAttribute('value', `${number_of_forms}`);
     this.next_to_add++;
     const headline = clone.querySelector("h3");
     headline.textContent = headline.textContent.replace("X", `${number_of_forms}`);
@@ -73,6 +76,9 @@ export default class extends Controller {
       passenger_forms.forEach((div, index) => { div.querySelector("h3").textContent = `Details for Passenger ${index + 1}`});
       
       number_of_forms--;
+      let last_div = document.querySelector("div.bookingsearchdiv");
+      let first_input = last_div.querySelector("input");
+      first_input.setAttribute('value', `${number_of_forms}`);
       const para = document.querySelector("p.toppara");
       para.textContent = para.textContent.replace(`${number_of_forms + 1}`, `${number_of_forms}`)
       // the value of params would only change with a redirect, so we have to modify the 'You are making a booking for...' message here
