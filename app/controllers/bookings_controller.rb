@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if @booking.save
         @booking.passengers.each do |pass|
-          PassengerMailer.with(passenger: pass).confirmation_email.deliver_later
+          PassengerMailer.confirmation_email(pass).deliver_later
         end
         format.html { redirect_to booking_path(id: @booking.id) }
         format.json { render json: @booking, status: :created, location: @booking }
