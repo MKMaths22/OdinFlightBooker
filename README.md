@@ -82,3 +82,29 @@ Project: Go back to your Flight Booker project and improve it:
 -----------------------------
 
 I found myself a bit rusty with Javascript but enjoyed this challenge. One subtlety that troubled me was that each Remove button for an individual set of passenger forms has its own controller, each with their own controller variables, but there is only ONE Add passenger button, so its controller variables will remain consistent. What surprised me is that if the attributes for name and email fields become non-sequential because a form field is removed in between (e.g. we remove passenger 2 of 3), the form still happily submits and the Booking object is created without a problem.
+
+-----------------------------
+
+**Update: Adding the PassengerMailer and letter_opener:**
+
+Later in March 2024 I followed the instructions at https://www.theodinproject.com/lessons/ruby-on-rails-sending-confirmation-emails:
+
+Assignment:  
+
+You’ll be dusting off your Flight Booker project and having it send out a “You have booked your ticket” confirmation email to all Passengers when they are created as part of the booking process. Make sure to send out one email to each Passenger in the Booking, not just one for the whole Booking. (Alternatively, you can use one of your other projects, as long as it has users registering.)  
+
+1)  Locate and load up the project file.  
+2)  Do some pushups and jumping jacks. You’ve been spending a bit too much time at the computer lately.
+3)  Generate your new mailer with $ rails generate mailer PassengerMailer.
+4)  Install the letter_opener gem to open your emails in the browser instead of sending them in the development environment.  
+5)  Follow through the steps listed in the Rails Guide to create the action to send the confirmation email.  
+6)  Build both an .html.erb and .text.erb version of your ticket confirmation email.  
+7)  Test that the email sends by creating a new flight booking (letter_opener should open it in the browser for you if you’ve set it up properly).  
+8)  Try out one other trick – call the mailer directly from the Rails Console using something like:  
+PassengerMailer.confirmation_email(Passenger.first).deliver_now!
+9)  Extra Credit: Deploy it to a hosting provider and try it out. There will be a bit of additional setup to get something an email provider like SendGrid working and sending emails in production for you.
+(One heads up: in order to use an email provider you will probably have to give your credit card information, they do this to deter spammers. You don’t have to pay for the service, but you do have to give your information.)  
+
+---------------------------------
+
+I also fixed the bug that when the Booking form was modified by adding or removing passenger fields and then submitted with information missing, the page reloaded with the original number of passengers the first time, but not subsequent times. I added a hidden field to the form, number_of_fields for the number of passengers, whose value is updated by the add_passenger Stimulus controller every time a passenger form is added or removed. This also affects the permitted params in the Bookings controller --- by making a copy of the params before using only the previous params to make the Booking, I was able to avoid modifying the Booking model to have number_of_fields as an attribute. I chose not to deploy using Sendgrid, because according to their Terms I would need to include a genuine postal address for my Company (?) in every email sent by the app.
