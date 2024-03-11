@@ -5,11 +5,11 @@ export default class extends Controller {
   static targets = [ "add_button", "remove_button" ]
   static values = [ "next_to_add" ]
 
-  // correct_string(string) {
-  //   string.replace("X", `${this.number_of_forms}`)
+  correct_string(string) {
+    string.replace("X", `${this.next_to_add}`)
     // Haven't managed to call this function within add_form because of scope issues? 
     // Will put off trying to fix this for now.
-  // }
+    }
 
   connect() {
     let number_of_forms = document.querySelectorAll("div.onepassengerdiv").length;
@@ -31,23 +31,25 @@ export default class extends Controller {
     let first_label = clone.querySelector("label.namelabel");
     let old_stuff = first_label.getAttribute("for");
     let new_attribute = old_stuff.replace("X",`${this.next_to_add}`)
-    // let new_attribute = correct_string(old_stuff, this.number_of_forms);
+    // let new_attribute = correct_string(old_stuff);
     first_label.setAttribute("for", `${new_attribute}`)
     let first_name = clone.querySelector("input.nameinput");
     first_name.setAttribute("id", `${new_attribute}`)
     old_stuff = first_name.getAttribute("name");
     new_attribute = old_stuff.replace("X", `${this.next_to_add}`)
+    // new_attribute = correct_string(old_stuff);
     first_name.setAttribute("name", `${new_attribute}`)
 
     first_label = clone.querySelector("label.emaillabel");
     old_stuff = first_label.getAttribute("for");
     new_attribute = old_stuff.replace("X",`${this.next_to_add}`)
-    // let new_attribute = correct_string(old_stuff, this.number_of_forms);
+    // new_attribute = correct_string(old_stuff);
     first_label.setAttribute("for", `${new_attribute}`)
     first_name = clone.querySelector("input.emailinput");
     first_name.setAttribute("id", `${new_attribute}`)
     old_stuff = first_name.getAttribute("name");
     new_attribute = old_stuff.replace("X", `${this.next_to_add}`)
+    // new_attribute = correct_string(old_stuff);
     first_name.setAttribute("name", `${new_attribute}`)
     number_of_forms++;
     let last_div = document.querySelector("div.bookingsearchdiv");
