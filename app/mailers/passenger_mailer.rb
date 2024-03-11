@@ -1,5 +1,5 @@
 class PassengerMailer < ApplicationMailer
-  def confirmation_email(passenger = params[:passenger])
+  def confirmation_email(passenger)
     @passenger = passenger
     @booking = @passenger.booking
     @flight = @booking.flight

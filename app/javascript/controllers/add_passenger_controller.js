@@ -79,6 +79,9 @@ export default class extends Controller {
       let last_div = document.querySelector("div.bookingsearchdiv");
       let first_input = last_div.querySelector("input");
       first_input.setAttribute('value', `${number_of_forms}`);
+      // The value attribute keeps track of the number of forms so that when it is submitted with an incorrectly filled-out form,
+      // the Bookings controller can replace the correct number of forms on the page, instead of reverting to the number in params[:number_of_passengers]
+      // that was initially submitted from the Flight search form.
       const para = document.querySelector("p.toppara");
       para.textContent = para.textContent.replace(`${number_of_forms + 1}`, `${number_of_forms}`)
       // the value of params would only change with a redirect, so we have to modify the 'You are making a booking for...' message here
